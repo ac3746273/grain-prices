@@ -1,0 +1,22 @@
+function trackGrainPrices(grainType) {
+  // Fetch the current price of the specified grain type
+  fetch(`https://api.agromonitoring.com/v1/prices/${grainType}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(`The current price of ${grainType} is ${data.price}`);
+    })
+    .catch(error => {
+      console.error(`An error occurred: ${error}`);
+    });
+}
+
+
+You can call this function by passing in the type of grain you want to track, for example:
+
+
+trackGrainPrices("wheat");
+
+
+This function uses the Fetch API to retrieve data from a hypothetical grain prices API. It first makes a GET request to the API endpoint, then converts the response to JSON, and finally logs the price of the grain to the console.
+
+This is a basic example, you may want to add more features to it like track price changes over time, make a graph, save data to the database, or show the data to the user in a nice way.
